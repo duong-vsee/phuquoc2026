@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lịch trình Phú Quốc</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#fff; --text:#1b1f24; --muted:#5f6b7a; --line:#e3e7ec;
+  --accent:#0b72e7; --accent-bg:#e8f1fd; --sun:#c25a00; --sun-bg:#fff1e3;
+  --good:#0a7d4f; --good-bg:#e5f5ee; --warn:#a15c00; --warn-bg:#fff3df; --opt:#6b5bd2; --opt-bg:#efecfd;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111418; --card:#1a1f25; --text:#e8ecf0; --muted:#9aa6b4; --line:#2b323b;
+    --accent:#5aa4ff; --accent-bg:#152336; --sun:#ffa65c; --sun-bg:#2d2012;
+    --good:#4cd39a; --good-bg:#12291f; --warn:#f0b25a; --warn-bg:#2d2312; --opt:#a99bff; --opt-bg:#221d3d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111418; --card:#1a1f25; --text:#e8ecf0; --muted:#9aa6b4; --line:#2b323b;
+  --accent:#5aa4ff; --accent-bg:#152336; --sun:#ffa65c; --sun-bg:#2d2012;
+  --good:#4cd39a; --good-bg:#12291f; --warn:#f0b25a; --warn-bg:#2d2312; --opt:#a99bff; --opt-bg:#221d3d;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:26px;margin:0 0 4px}
+h2{font-size:18px;margin:28px 0 10px}
+.sub{color:var(--muted);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.facts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.fact .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.fact .v{font-weight:600}
+.day{margin-top:14px}
+.day-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:8px}
+.day-head .n{font-size:13px;font-weight:700;color:var(--accent);background:var(--accent-bg);padding:2px 10px;border-radius:999px}
+.day-head h3{margin:0;font-size:17px}
+.day-head .where{color:var(--muted);font-size:13px}
+.slots{display:grid;gap:0}
+.slot{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.slot:first-child{border-top:none}
+.slot .t{font-weight:600;font-variant-numeric:tabular-nums;color:var(--muted)}
+.slot .w b{font-weight:600}
+.slot .w small{display:block;color:var(--muted);font-size:13px}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;margin-left:4px;white-space:nowrap}
+.tag.nap{color:var(--good);background:var(--good-bg)}
+.tag.opt{color:var(--opt);background:var(--opt-bg)}
+.tag.sun{color:var(--sun);background:var(--sun-bg)}
+.tag.car{color:var(--accent);background:var(--accent-bg)}
+.warnbox{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--warn-bg);color:var(--text);font-size:14px}
+.warnbox b{color:var(--warn)}
+ul{margin:0;padding-left:20px}
+li{margin:4px 0}
+.note{font-size:13px;color:var(--muted);margin-top:8px}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Phú Quốc · 28/10 → 1/11/2026</h1>
+  <p class="sub">5 ngày 4 đêm · 2 người lớn, bé 5 tuổi, bé 17 tháng · đi thong thả, nhẹ nhàng</p>
+
+  <div class="card facts">
+    <div class="fact"><div class="k">Bay đi</div><div class="v">T4 28/10 · 9G 2963<br>08:45 Đà Nẵng → 10:30 Phú Quốc</div></div>
+    <div class="fact"><div class="k">Bay về</div><div class="v">CN 1/11 · 9G 2966<br>16:00 Phú Quốc → 17:45 Đà Nẵng</div></div>
+    <div class="fact"><div class="k">Đêm 28/10</div><div class="v">Hillside · JM Tropical Villa Bãi Khem (nam đảo)</div></div>
+    <div class="fact"><div class="k">Đêm 29/10 – 1/11</div><div class="v">Wyndham Garden (bắc đảo) · VinWonders + Safari ra vào không giới hạn</div></div>
+  </div>
+
+  <!-- NGÀY 1 -->
+  <div class="card day">
+    <div class="day-head"><span class="n">Ngày 1</span><h3>T4 28/10 · Nam đảo, biển và hoàng hôn</h3><span class="tag car">Có xe ô tô</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">10:30</div><div class="w"><b>Đáp Phú Quốc</b>, lấy hành lý.</div></div>
+      <div class="slot"><div class="t">11:00</div><div class="w"><b>Nhận xe VinFast VF3</b> tại sân bay. Đặt cọc 3 triệu, kiểm tra và chụp ảnh xe, xem mức pin.</div></div>
+      <div class="slot"><div class="t">11:45</div><div class="w"><b>Ăn trưa</b> bún quậy hoặc hải sản nhẹ ở khu An Thới, nam đảo.</div></div>
+      <div class="slot"><div class="t">13:00</div><div class="w"><b>Đến Hillside</b> ở Bãi Khem, gửi hành lý và xin nhận phòng sớm.<small>Nếu chưa có phòng: ngồi quán cà phê hoặc nhà hàng ven biển Bãi Khem, cho bé ngủ trưa trên xe đẩy.</small></div></div>
+      <div class="slot"><div class="t">15:00</div><div class="w"><b>Nhận phòng Hillside.</b> <span class="tag nap">Nghỉ ngơi</span></div></div>
+      <div class="slot"><div class="t">16:00</div><div class="w"><b>Tắm biển Bãi Khem</b>, ngay cạnh khách sạn. Cát trắng mịn, nước êm, hợp cho hai bé.</div></div>
+      <div class="slot"><div class="t">17:15</div><div class="w"><b>Sunset Town</b>: Cầu Hôn, phố Địa Trung Hải. <span class="tag sun">Hoàng hôn ~17:40</span><small>Cách Bãi Khem khoảng 10 phút lái xe.</small></div></div>
+      <div class="slot"><div class="t">18:30</div><div class="w"><b>Ăn tối</b>, dạo chợ đêm Vui Phết.</div></div>
+      <div class="slot"><div class="t">21:00</div><div class="w"><b>Show Kiss of the Sea</b> và pháo hoa (khoảng 30 phút). <span class="tag opt">Tùy chọn</span><small>Muộn với bé 17 tháng. Có mặt trước 21:00. Show nghỉ thứ Ba, nhưng 28/10 là thứ Tư nên vẫn có diễn. Vé khoảng 600–700k/người.</small></div></div>
+    </div>
+  </div>
+
+  <!-- NGÀY 2 -->
+  <div class="card day">
+    <div class="day-head"><span class="n">Ngày 2</span><h3>T5 29/10 · Nam → Bắc, Rạch Vẹm và Grand World</h3><span class="tag car">Có xe ô tô</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">7:30</div><div class="w"><b>Tắm biển sớm</b> ở Bãi Khem hoặc Bãi Sao lúc còn mát. <span class="tag opt">Tùy chọn</span></div></div>
+      <div class="slot"><div class="t">10:00</div><div class="w"><b>Trả phòng</b> (hạn 12:00), lái xe lên bắc đảo (khoảng 1 tiếng 15 phút).</div></div>
+      <div class="slot"><div class="t">11:30</div><div class="w"><b>Làng chài Rạch Vẹm</b>: ra biển, tìm sao biển, <b>ăn trưa hải sản ở nhà bè</b>.<small>Kinh nghiệm: gọi đặt trước ở các nhà ven biển, khoảng 300k/người.</small></div></div>
+      <div class="slot"><div class="t">14:15</div><div class="w">Lái xe về Wyndham Garden (khoảng 25 phút).</div></div>
+      <div class="slot"><div class="t">15:00</div><div class="w"><b>Nhận phòng Wyndham Garden.</b> <span class="tag nap">Ngủ trưa</span><small>Đến sớm thì gửi hành lý, cho bé chơi ở sảnh hoặc hồ bơi trong lúc chờ.</small></div></div>
+      <div class="slot"><div class="t">16:30</div><div class="w"><b>Grand World</b>: thuyền gondola trên sông Venice, Bảo tàng Gấu Teddy, Công trình Tre.</div></div>
+      <div class="slot"><div class="t">18:30</div><div class="w"><b>Ăn tối</b> ven sông Venice.</div></div>
+      <div class="slot"><div class="t">Tối</div><div class="w"><b>Show Sắc màu Venice</b> (miễn phí). <span class="tag opt">Tùy chọn</span><small>Giờ diễn năm nay chưa xác nhận, xem lịch ở cổng hoặc trong app VinWonders.</small></div></div>
+      <div class="slot"><div class="t">Trước 22:00</div><div class="w"><b>Trả xe VF3 tại khu Vin.</b> Bên cho thuê kiểm tra xe xong thì hoàn cọc 3 triệu.</div></div>
+    </div>
+    <div class="warnbox"><b>Rạch Vẹm cuối tháng 10:</b> mùa sao biển đẹp nhất là tháng 11 (rõ nhất từ tháng 12) đến tháng 4. Cuối tháng 10 còn mùa mưa, nước có thể đục và ít sao biển. Vẫn nên đi để ăn trưa ở nhà bè, nhưng đừng kỳ vọng nhiều về sao biển. Xem thời tiết sáng hôm đó, biển động thì đổi sang biển gần khách sạn.</div>
+  </div>
+
+  <!-- NGÀY 3 -->
+  <div class="card day">
+    <div class="day-head"><span class="n">Ngày 3</span><h3>T6 30/10 · VinWonders</h3><span class="where">Mở cửa 9:00 – 19:30</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">9:00</div><div class="w"><b>Khu Thế giới Diệu Kỳ</b>, chơi trò chơi nhẹ cho bé 5 tuổi lúc trời còn mát.<small>Kinh nghiệm: đi xe buggy trong VinWonders khoảng 150k, đỡ phải đẩy xe cho bé đi bộ xa.</small></div></div>
+      <div class="slot"><div class="t">11:30</div><div class="w"><b>Ăn trưa ở nhà hàng Seahorse Tavern</b> ngay trong thủy cung, combo khoảng 400k.</div></div>
+      <div class="slot"><div class="t">12:30</div><div class="w"><b>Thủy cung Cung điện Hải Vương</b>: ăn xong ở lại luôn, mát và yên tĩnh, bé ngủ trên xe đẩy trong lúc cả nhà xem cá thong thả. <span class="tag nap">Ngủ trưa trong thủy cung</span><small>Không về khách sạn, chơi liền cả ngày.</small></div></div>
+      <div class="slot"><div class="t">14:00</div><div class="w"><b>Show Nàng tiên cá</b> (14:00 – 14:20) trong thủy cung. Nếu bé còn ngủ thì xem suất 15:30.</div></div>
+      <div class="slot"><div class="t">15:00</div><div class="w"><b>Khu nước trẻ em</b> hoặc dạo công viên, nghỉ uống nước giữa chừng.</div></div>
+      <div class="slot"><div class="t">18:45</div><div class="w"><b>Show Once</b> (18:45 – 19:05). <span class="tag opt">Tùy chọn</span></div></div>
+      <div class="slot"><div class="t">19:15</div><div class="w"><b>Ăn tối</b>, về khách sạn.</div></div>
+    </div>
+  </div>
+
+  <!-- NGÀY 4 -->
+  <div class="card day">
+    <div class="day-head"><span class="n">Ngày 4</span><h3>T7 31/10 · Vinpearl Safari</h3><span class="where">Mở cửa khoảng 8:30 – 16:00</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">8:30</div><div class="w"><b>Vào Safari từ sớm</b>, lúc thú hoạt động nhiều và chưa nắng gắt.</div></div>
+      <div class="slot"><div class="t">Sáng</div><div class="w"><b>Xe bus vào khu bán hoang dã</b> ("nhốt người thả thú"), <b>show động vật</b>, khu thú nhỏ cho bé.<small>Giờ show động vật chưa xác nhận, hỏi ở quầy vé khi vào. Kinh nghiệm: đi xe buggy trong Safari khoảng 130k, đỡ đi bộ dưới nắng.</small></div></div>
+      <div class="slot"><div class="t">12:00</div><div class="w"><b>Ăn trưa</b> trong Safari.</div></div>
+      <div class="slot"><div class="t">13:00</div><div class="w"><b>Về khách sạn.</b> <span class="tag nap">Ngủ trưa</span></div></div>
+      <div class="slot"><div class="t">16:00</div><div class="w"><b>Hồ bơi hoặc biển</b> khu Vinpearl, ngắm hoàng hôn. <span class="tag sun">Hoàng hôn ~17:40</span></div></div>
+      <div class="slot"><div class="t">18:30</div><div class="w"><b>Ăn tối</b> nhẹ nhàng gần khách sạn.</div></div>
+    </div>
+  </div>
+
+  <!-- NGÀY 5 -->
+  <div class="card day">
+    <div class="day-head"><span class="n">Ngày 5</span><h3>CN 1/11 · Chơi ở khách sạn, bay về</h3></div>
+    <div class="slots">
+      <div class="slot"><div class="t">Sáng</div><div class="w"><b>Ăn sáng thong thả</b>, hồ bơi và biển khách sạn.</div></div>
+      <div class="slot"><div class="t">12:00</div><div class="w"><b>Trả phòng</b> (hạn 12:00), gửi hành lý ở lễ tân, ăn trưa.</div></div>
+      <div class="slot"><div class="t">13:30</div><div class="w"><b>Ra sân bay</b> bằng taxi (khoảng 45 phút).</div></div>
+      <div class="slot"><div class="t">14:15</div><div class="w"><b>Có mặt ở sân bay</b>, làm thủ tục.</div></div>
+      <div class="slot"><div class="t">16:00</div><div class="w"><b>Bay về Đà Nẵng</b>, 9G 2966, đến nơi 17:45.</div></div>
+    </div>
+  </div>
+
+  <h2>Cần làm trước khi đi</h2>
+  <div class="card">
+    <ul>
+      <li><s>Chuyển khoản Rooty 12.995.000đ</s> <span class="tag nap">Đã xong</span></li>
+      <li><s>Đặt vé máy bay</s> <span class="tag nap">Đã xong</span></li>
+      <li><s>Hành lý ký gửi</s> <span class="tag nap">Đã có</span> Vé ghi 1 kiện ký gửi/người cho cả chiều đi lẫn chiều về.</li>
+      <li><b>Làm thủ tục online</b> trên web hoặc app Sun PhuQuoc Airways, từ 24 giờ đến 1 giờ trước giờ bay: chiều đi từ 08:45 ngày 27/10, chiều về từ 16:00 ngày 31/10.</li>
+      <li><b>Giờ khách sạn:</b> nhận phòng 15:00, trả phòng 12:00. Ngày 28/10 đến Hillside khoảng 13:00, hỏi trước xem có nhận phòng sớm được không.</li>
+      <li><b>Xe VinFast VF3</b> (đã đặt): giao 11:00 ngày 28/10 tại sân bay, trả trước 22:00 ngày 29/10 tại khu Vin. Tiền thuê kèm phí giao nhận 1,1 triệu, cọc 3 triệu (hoàn lại khi trả xe không có vấn đề).
+        <ul>
+          <li>VF3 là xe điện cỡ nhỏ, cốp rất bé. Hỏi trước xem có chở vừa 4 người cùng vali, xe đẩy và ghế ngồi cho bé không.</li>
+          <li>Xin <b>ghế ngồi ô tô cho bé</b> nếu bên cho thuê có.</li>
+          <li>Hỏi mức pin lúc giao và chỗ sạc gần Hillside. Hai ngày đi khoảng 100 km, nằm trong tầm pin nếu giao xe đầy.</li>
+        </ul></li>
+      <li><b>Mua vé Kiss of the Sea</b> trước nếu muốn xem.</li>
+    </ul>
+  </div>
+
+  <h2>Mang theo cho hai bé</h2>
+  <div class="card">
+    <ul>
+      <li>Xe đẩy gấp gọn, địu em bé (Safari và VinWonders đi bộ nhiều).</li>
+      <li>Kem chống nắng, mũ, áo chống nắng, đồ bơi, phao tay cho bé 5 tuổi.</li>
+      <li>Áo mưa hoặc ô gấp: cuối tháng 10 vẫn có thể có mưa rào.</li>
+      <li>Tã, bình nước, đồ ăn vặt, thuốc hạ sốt, thuốc chống côn trùng.</li>
+    </ul>
+  </div>
+
+  <p class="note">Giờ show và giờ mở cửa lấy ngày 21/10/2026 từ trang VinWonders, Sunset Town và Vinpearl, có thể đổi theo thời tiết. Kiểm tra lại trong app VinWonders hoặc ở cổng khi đến.
+  Nguồn: <a href="https://vinwonders.com/vi/wonderpedia/news/vinwonders-phu-quoc-gio-mo-cua/">VinWonders giờ mở cửa và lịch show</a> ·
+  <a href="https://www.sunset-town.com/booking/kiss-of-sea-ticket-sunset-town-phu-quoc-show/">Kiss of the Sea</a> ·
+  <a href="https://vinpearl.com/vi/check-rach-vem-phu-quoc-mua-sao-bien">Rạch Vẹm mùa sao biển</a> ·
+  <a href="https://vinpearl.com/vi/show-dien-grand-world-phu-quoc-lich-bieu-dien-gia-ve-chi-tiet">Show Grand World</a></p>
+</div>
+</body>
+</html>
