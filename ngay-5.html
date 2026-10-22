@@ -32,12 +32,38 @@
   const save = a => { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (e) {} };
   const p2 = n => String(n).padStart(2, '0');
   const fmt = t => { const d = new Date(t); return p2(d.getDate()) + '/' + p2(d.getMonth() + 1) + ' ' + p2(d.getHours()) + ':' + p2(d.getMinutes()); };
+  // Góp ý chung từ Google Sheet (mọi máy), cập nhật chậm vài phút
+  const parseCSV = txt => {
+    const rows = []; let row = [], cell = '', q = false;
+    for (let i = 0; i < txt.length; i++) {
+      const c = txt[i];
+      if (q) { if (c === '"') { if (txt[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += c; }
+      else if (c === '"') q = true;
+      else if (c === ',') { row.push(cell); cell = ''; }
+      else if (c === '\n') { row.push(cell); rows.push(row); row = []; cell = ''; }
+      else if (c !== '\r') cell += c;
+    }
+    if (cell || row.length) { row.push(cell); rows.push(row); }
+    return rows;
+  };
+  const sheetTime = ts => { const m = /^(\d+)\/(\d+)\/(\d+) (\d+):(\d+)/.exec(ts || ''); return m ? new Date(+m[3], m[1] - 1, +m[2], +m[4], +m[5]).getTime() : 0; };
+  let shared = [];
+  const sharedReady = fetch('https://docs.google.com/spreadsheets/d/1iCTO3b--YCVqtvWacjnqcKLXRt3117-SfgWHVHMkcYU/gviz/tq?tqx=out:csv', {cache: 'no-store'}).then(r => r.ok ? r.text() : '').then(txt => {
+    shared = parseCSV(txt).slice(1).map(r => {
+      const m = /^\[([^\]]+)\]\s*([\s\S]*)$/.exec((r[1] || '').trim());
+      return m ? {label: m[1], msg: m[2].trim(), t: sheetTime(r[0])} : null;
+    }).filter(x => x && x.msg);
+  }).catch(() => {});
   const render = f => {
-    const items = load().filter(x => x.label === f.dataset.label);
+    const label = f.dataset.label;
+    const mine = load().filter(x => x.label === label);
+    const fromSheet = shared.filter(x => x.label === label);
+    const seen = new Set(fromSheet.map(x => x.msg));
+    const items = [...fromSheet, ...mine.filter(x => !seen.has(x.msg))].sort((a, b) => b.t - a.t);
     const box = f.querySelector('.fbsent'), ul = box.querySelector('ul');
-    ul.replaceChildren(...items.slice().reverse().map(x => {
+    ul.replaceChildren(...items.map(x => {
       const li = document.createElement('li');
-      const time = document.createElement('small'); time.textContent = fmt(x.t);
+      const time = document.createElement('small'); time.textContent = x.t ? fmt(x.t) : '';
       li.append(time, document.createTextNode(x.msg));
       return li;
     }));
@@ -45,6 +71,7 @@
   };
   document.querySelectorAll('form.fb').forEach(f => {
     render(f);
+    sharedReady.then(() => render(f));
     f.addEventListener('submit', async e => {
       e.preventDefault();
       const t = f.querySelector('textarea'), st = f.querySelector('.fbstatus'), b = f.querySelector('button');
