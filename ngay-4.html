@@ -18,7 +18,28 @@
 <div class="meals"><div class="card meal"><h3>Sáng <span>· Khách sạn</span></h3><ul><li><b>Ăn sáng ở Wyndham</b> <small>· ăn sớm để vào Safari lúc 8:30</small></li></ul></div><div class="card meal"><h3>Trưa <span>· Trong Safari</span></h3><ul><li><b>Flamingo</b> <small>· gọi món Việt, có set cơm cho gia đình</small></li><li><b>Khu Giraffe</b> <small>· cho hươu cao cổ ăn khoảng 30k/phần, bé 5 tuổi sẽ thích</small></li></ul></div><div class="card meal"><h3>Tối <span>· Khách sạn</span></h3><ul><li><b>Buffet ở Wyndham</b> <small>· đã gồm trong gói AI (tối 31/10, sáng và trưa 1/11), thêm 2 bữa ăn nhẹ/ngày</small></li></ul></div></div>
 <h2>Đề xuất và mẹo</h2>
 <div class="card"><ul class="tips"><li>Xe buggy trong Safari khoảng 130k, đỡ đi bộ dưới nắng.</li><li>Mang mũ, kem chống nắng, nước uống. Khu Safari rộng và ít bóng mát.</li><li>Bé 17 tháng: địu tiện hơn xe đẩy ở những đoạn đông người.</li><li>Không cho thú ăn đồ mang theo, chỉ dùng thức ăn bán tại chỗ.</li><li>Gói AI có Vinbus đưa đón miễn phí đến VinWonders và Safari, Tuktuk đến Grand World.</li><li>Hỏi Rooty: quyền lợi gói AI áp dụng từ lúc nào (chỉ đêm 31/10 hay cả thời gian ở).</li></ul></div>
-<div class="card fb"><div><b>Góp ý cho Ngày 4</b><small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây.</small></div><a class="fbbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/viewform?usp=pp_url&amp;entry.783513090=%5BNg%C3%A0y+4%5D+" target="_blank" rel="noopener">Viết góp ý</a></div>
+<form class="card fb" data-label="Ngày 4">
+  <b>Góp ý cho Ngày 4</b>
+  <small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây rồi bấm Gửi.</small>
+  <textarea name="msg" rows="3" required placeholder="Ví dụ: buổi sáng cho bé ngủ thêm, 10:30 mới đi"></textarea>
+  <div class="fbrow"><button type="submit" class="fbbtn">Gửi góp ý</button><span class="fbstatus" aria-live="polite"></span></div>
+</form>
+<script>
+document.querySelectorAll('form.fb').forEach(f => f.addEventListener('submit', async e => {
+  e.preventDefault();
+  const t = f.querySelector('textarea'), st = f.querySelector('.fbstatus'), b = f.querySelector('button');
+  const msg = t.value.trim(); if (!msg) return;
+  b.disabled = true; st.textContent = 'Đang gửi…';
+  try {
+    await fetch('https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/formResponse', {method: 'POST', mode: 'no-cors',
+      body: new URLSearchParams({'entry.783513090': '[' + f.dataset.label + '] ' + msg})});
+    t.value = ''; st.textContent = 'Đã gửi, cảm ơn!';
+  } catch (err) {
+    st.textContent = 'Chưa gửi được, kiểm tra mạng rồi thử lại.';
+  }
+  b.disabled = false;
+}));
+</script>
 <div class="pager"><a href="ngay-3.html"><small>← Ngày 3</small>VinWonders · chơi trọn ngày</a><a class="next" href="ngay-5.html"><small>Ngày 5 →</small>Chơi ở khách sạn · bay về</a></div>
 </div>
 </body>

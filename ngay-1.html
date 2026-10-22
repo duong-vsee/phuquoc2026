@@ -18,7 +18,28 @@
 <div class="meals"><div class="card meal"><h3>Trưa <span>· Trên đường về nam đảo · dễ đỗ ô tô</span></h3><ul><li><b><a href='https://maps.app.goo.gl/1zwdyYmBEm6e3S5f6' target='_blank' rel='noopener'>Cơm Bắc Gia Đình</a></b> <small>· cơm nhà kiểu Bắc, nhẹ nhàng cho hai bé; khu An Thới, nam đảo (mở bản đồ)</small></li><li><b><a href='https://maps.app.goo.gl/kV4WAbjmfqNqQGxQA' target='_blank' rel='noopener'>Cơm niêu (Clay pot rice)</a></b> <small>· cơm niêu, cách Cơm Bắc Gia Đình vài trăm mét (mở bản đồ)</small></li><li><b><a href='https://maps.app.goo.gl/efYAxPKB99qxAbF56' target='_blank' rel='noopener'>Kungfu Noodle Phú Quốc</a></b> <small>· cũng ở khu An Thới (mở bản đồ)</small></li><li><b><a href='https://maps.app.goo.gl/aZNqsTA1RMJu4oRG9' target='_blank' rel='noopener'>NamBo Kitchen</a></b> <small>· khu An Thới, gần các quán trên (mở bản đồ)</small></li><li><b><a href='https://maps.app.goo.gl/Ng8efXv4CW9m3H7o6' target='_blank' rel='noopener'>Bún quậy Kiến Xây</a></b> <small>· món đặc sản Phú Quốc, chi nhánh khu An Thới (mở bản đồ)</small></li><li><b>Quán trên trục chính Nguyễn Văn Cừ (An Thới)</b> <small>· đường lớn, dễ dừng đỗ, nhiều quán hải sản và bún quậy</small></li><li><b>Ann Seafood (Bãi Khem)</b> <small>· nhà hàng lớn, view biển, giá cao hơn; gọi trước hỏi chỗ đỗ</small></li><li><b>Thanh Nga (gần Bãi Khem)</b> <small>· hải sản nướng, lẩu, giá bình dân; gọi trước hỏi chỗ đỗ</small></li></ul></div><div class="card meal"><h3>Tối <span>· Sunset Town · có bãi đỗ ô tô</span></h3><ul><li><b>Chợ đêm Vui Phết</b> <small>· nhiều quầy ăn vặt, dễ đi với trẻ nhỏ</small></li><li><b>Nhà hàng trong Sunset Town</b> <small>· ăn trước giờ show nếu muốn xem Kiss of the Sea</small></li></ul></div></div>
 <h2>Đề xuất và mẹo</h2>
 <div class="card"><ul class="tips"><li>Nhắn Hillside trước, hỏi nhận phòng sớm được không. Được thì hai bé ngủ trưa trong phòng luôn.</li><li>Sunset Town có bãi đỗ ô tô rộng. Đỗ xe xong chụp lại vị trí bãi, buổi tối đông khách dễ lạc.</li><li>Không tắm ở bãi trong Sunset Town: review nói nước không sạch do pháo hoa từ các show. Tắm ở Bãi Khem hoặc Bãi Sao, nước trong, cát trắng, vào tự do không mất vé.</li><li>Tránh quán Hoàng Hôn ở Bãi Khem: review nói đường vào tối và khó đi, không hợp đi ô tô.</li><li>Đến Sunset Town sớm để có chỗ đứng đẹp ở Cầu Hôn lúc hoàng hôn.</li><li>Pháo hoa bắn tầm cao khoảng 21:30, đứng ở Hillside vẫn thấy. Về sớm cho bé nghỉ rồi xem từ khách sạn.</li><li>Mang áo khoác mỏng cho bé buổi tối, gió biển khá mạnh.</li></ul></div>
-<div class="card fb"><div><b>Góp ý cho Ngày 1</b><small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây.</small></div><a class="fbbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/viewform?usp=pp_url&amp;entry.783513090=%5BNg%C3%A0y+1%5D+" target="_blank" rel="noopener">Viết góp ý</a></div>
+<form class="card fb" data-label="Ngày 1">
+  <b>Góp ý cho Ngày 1</b>
+  <small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây rồi bấm Gửi.</small>
+  <textarea name="msg" rows="3" required placeholder="Ví dụ: buổi sáng cho bé ngủ thêm, 10:30 mới đi"></textarea>
+  <div class="fbrow"><button type="submit" class="fbbtn">Gửi góp ý</button><span class="fbstatus" aria-live="polite"></span></div>
+</form>
+<script>
+document.querySelectorAll('form.fb').forEach(f => f.addEventListener('submit', async e => {
+  e.preventDefault();
+  const t = f.querySelector('textarea'), st = f.querySelector('.fbstatus'), b = f.querySelector('button');
+  const msg = t.value.trim(); if (!msg) return;
+  b.disabled = true; st.textContent = 'Đang gửi…';
+  try {
+    await fetch('https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/formResponse', {method: 'POST', mode: 'no-cors',
+      body: new URLSearchParams({'entry.783513090': '[' + f.dataset.label + '] ' + msg})});
+    t.value = ''; st.textContent = 'Đã gửi, cảm ơn!';
+  } catch (err) {
+    st.textContent = 'Chưa gửi được, kiểm tra mạng rồi thử lại.';
+  }
+  b.disabled = false;
+}));
+</script>
 <div class="pager"><a href="index.html"><small>←</small>Tổng quan</a><a class="next" href="ngay-2.html"><small>Ngày 2 →</small>Nam → Bắc · Rạch Vẹm và Grand World</a></div>
 </div>
 </body>

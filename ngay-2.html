@@ -18,7 +18,28 @@
 <div class="meals"><div class="card meal"><h3>Trưa <span>· Rạch Vẹm, nhà bè</span></h3><ul><li><b>Gọi đặt trước ở các nhà ven biển</b> <small>· khoảng 300k/người (kinh nghiệm đã lưu). Khi gọi hỏi luôn chỗ đỗ ô tô và đường vào</small></li><li><b>Nhà bè Xuân Thùy</b> <small>· mở cả ngày, hải sản từ khoảng 50–450k/món</small></li><li><b>Nhà bè Hải Sơn</b> <small>· giá rõ ràng, view biển thoáng</small></li><li><b>Nhà bè Tình Yêu</b> <small>· khoảng 500k là no</small></li></ul></div><div class="card meal"><h3>Trưa dự phòng <span>· Dương Đông · trên đường lên bắc</span></h3><ul><li><b><a href='https://maps.app.goo.gl/FAEPeZYKJ2zWsXB19' target='_blank' rel='noopener'>The Home Pizza Phu Quoc</a></b> <small>· pizza, ngay trên đường từ nam lên bắc. Dùng khi mưa phải bỏ Rạch Vẹm (mở bản đồ)</small></li></ul></div><div class="card meal"><h3>Tối <span>· Grand World · để xe ở khách sạn</span></h3><ul><li><b><a href='https://maps.app.goo.gl/dmwuWLa7oofKdxoD9' target='_blank' rel='noopener'>Loca Fastfood &amp; Kitchen</a></b> <small>· pizza và đồ ăn nhanh, hợp khẩu vị bé 5 tuổi; khu bắc đảo gần Grand World (mở bản đồ)</small></li><li><b><a href='https://maps.app.goo.gl/zrFM6aYZEi9k4KYB7' target='_blank' rel='noopener'>GUSTI Western Fusion</a></b> <small>· món Âu kết hợp, có pizza; gần Loca (mở bản đồ)</small></li><li><b>Chợ đêm Grand World</b> <small>· khoảng 100 quầy ăn; bún quậy Kiến Xây ở khu Shanghai Town, mở 15:15–21:30</small></li><li><b>Crazy Crab</b> <small>· rộng rãi, có giải trí, hợp gia đình</small></li><li><b>Sunset Restaurant</b> <small>· không gian mở, view hoàng hôn Bãi Dài</small></li><li><b>Mai Hương</b> <small>· hải sản cao cấp, giá cao</small></li></ul></div></div>
 <h2>Đề xuất và mẹo</h2>
 <div class="card"><ul class="tips"><li>Ở nhà bè: yêu cầu cân hải sản trước mặt, hỏi rõ giá đã gồm tiền chế biến chưa trước khi bếp nấu.</li><li>Ăn ở bè thường được tắm nước ngọt miễn phí. Nếu không ăn thì khoảng 10–20k/người.</li><li>Không nhấc sao biển ra khỏi nước hay đặt lên cát nóng.</li><li>Tối đi Grand World: để xe ở khách sạn rồi đi bộ hoặc xe điện sang (hỏi lễ tân), khỏi tìm chỗ đỗ.</li><li>Đi thuyền gondola lúc chiều mát. Grand World lên đèn sau 18:00, chụp ảnh đẹp.</li><li>Sạc hoặc kiểm tra pin VF3 trước khi trả xe, xem bên cho thuê có yêu cầu mức pin không.</li></ul></div>
-<div class="card fb"><div><b>Góp ý cho Ngày 2</b><small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây.</small></div><a class="fbbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/viewform?usp=pp_url&amp;entry.783513090=%5BNg%C3%A0y+2%5D+" target="_blank" rel="noopener">Viết góp ý</a></div>
+<form class="card fb" data-label="Ngày 2">
+  <b>Góp ý cho Ngày 2</b>
+  <small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây rồi bấm Gửi.</small>
+  <textarea name="msg" rows="3" required placeholder="Ví dụ: buổi sáng cho bé ngủ thêm, 10:30 mới đi"></textarea>
+  <div class="fbrow"><button type="submit" class="fbbtn">Gửi góp ý</button><span class="fbstatus" aria-live="polite"></span></div>
+</form>
+<script>
+document.querySelectorAll('form.fb').forEach(f => f.addEventListener('submit', async e => {
+  e.preventDefault();
+  const t = f.querySelector('textarea'), st = f.querySelector('.fbstatus'), b = f.querySelector('button');
+  const msg = t.value.trim(); if (!msg) return;
+  b.disabled = true; st.textContent = 'Đang gửi…';
+  try {
+    await fetch('https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/formResponse', {method: 'POST', mode: 'no-cors',
+      body: new URLSearchParams({'entry.783513090': '[' + f.dataset.label + '] ' + msg})});
+    t.value = ''; st.textContent = 'Đã gửi, cảm ơn!';
+  } catch (err) {
+    st.textContent = 'Chưa gửi được, kiểm tra mạng rồi thử lại.';
+  }
+  b.disabled = false;
+}));
+</script>
 <div class="pager"><a href="ngay-1.html"><small>← Ngày 1</small>Nam đảo · biển và hoàng hôn</a><a class="next" href="ngay-3.html"><small>Ngày 3 →</small>VinWonders · chơi trọn ngày</a></div>
 </div>
 </body>

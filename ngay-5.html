@@ -18,7 +18,28 @@
 <div class="meals"><div class="card meal"><h3>Sáng + trưa <span>· Khách sạn</span></h3><ul><li><b>Ăn ở Wyndham</b> <small>· đã gồm trong gói AI, không cần lo</small></li></ul></div></div>
 <h2>Đề xuất và mẹo</h2>
 <div class="card"><ul class="tips"><li>Làm thủ tục online từ 16:00 ngày 31/10 (24 giờ trước giờ bay) trên web hoặc app Sun PhuQuoc Airways.</li><li>Mỗi người có 1 kiện ký gửi. Đồ ướt, đồ bơi cho vào túi riêng.</li><li>Để sẵn bỉm, sữa, đồ ăn vặt cho bé trong túi xách tay.</li><li>Đặt Vinbus ra sân bay với lễ tân từ tối 31/10. Không còn xe VF3 vì đã trả tối 29/10.</li></ul></div>
-<div class="card fb"><div><b>Góp ý cho Ngày 5</b><small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây.</small></div><a class="fbbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/viewform?usp=pp_url&amp;entry.783513090=%5BNg%C3%A0y+5%5D+" target="_blank" rel="noopener">Viết góp ý</a></div>
+<form class="card fb" data-label="Ngày 5">
+  <b>Góp ý cho Ngày 5</b>
+  <small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây rồi bấm Gửi.</small>
+  <textarea name="msg" rows="3" required placeholder="Ví dụ: buổi sáng cho bé ngủ thêm, 10:30 mới đi"></textarea>
+  <div class="fbrow"><button type="submit" class="fbbtn">Gửi góp ý</button><span class="fbstatus" aria-live="polite"></span></div>
+</form>
+<script>
+document.querySelectorAll('form.fb').forEach(f => f.addEventListener('submit', async e => {
+  e.preventDefault();
+  const t = f.querySelector('textarea'), st = f.querySelector('.fbstatus'), b = f.querySelector('button');
+  const msg = t.value.trim(); if (!msg) return;
+  b.disabled = true; st.textContent = 'Đang gửi…';
+  try {
+    await fetch('https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/formResponse', {method: 'POST', mode: 'no-cors',
+      body: new URLSearchParams({'entry.783513090': '[' + f.dataset.label + '] ' + msg})});
+    t.value = ''; st.textContent = 'Đã gửi, cảm ơn!';
+  } catch (err) {
+    st.textContent = 'Chưa gửi được, kiểm tra mạng rồi thử lại.';
+  }
+  b.disabled = false;
+}));
+</script>
 <div class="pager"><a href="ngay-4.html"><small>← Ngày 4</small>Vinpearl Safari · gặp thú buổi sáng</a><a class="next" href="index.html"><small>→</small>Tổng quan</a></div>
 </div>
 </body>

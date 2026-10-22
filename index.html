@@ -60,7 +60,28 @@
   <li>Áo mưa hoặc ô gấp: cuối tháng 10 vẫn có thể có mưa rào.</li>
   <li>Tã, bình nước, đồ ăn vặt, thuốc hạ sốt, thuốc chống côn trùng.</li>
 </ul></div>
-<div class="card fb"><div><b>Góp ý cho tổng quan</b><small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây.</small></div><a class="fbbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/viewform?usp=pp_url&amp;entry.783513090=%5BT%E1%BB%95ng+quan%5D+" target="_blank" rel="noopener">Viết góp ý</a></div>
+<form class="card fb" data-label="Tổng quan">
+  <b>Góp ý cho tổng quan</b>
+  <small>Muốn đổi giờ, thêm chỗ, bỏ hoạt động… ghi vào đây rồi bấm Gửi.</small>
+  <textarea name="msg" rows="3" required placeholder="Ví dụ: buổi sáng cho bé ngủ thêm, 10:30 mới đi"></textarea>
+  <div class="fbrow"><button type="submit" class="fbbtn">Gửi góp ý</button><span class="fbstatus" aria-live="polite"></span></div>
+</form>
+<script>
+document.querySelectorAll('form.fb').forEach(f => f.addEventListener('submit', async e => {
+  e.preventDefault();
+  const t = f.querySelector('textarea'), st = f.querySelector('.fbstatus'), b = f.querySelector('button');
+  const msg = t.value.trim(); if (!msg) return;
+  b.disabled = true; st.textContent = 'Đang gửi…';
+  try {
+    await fetch('https://docs.google.com/forms/d/e/1FAIpQLSextj5ghnjHn1wzSoOTSGYqWAeU7Lj4BZUbIFn7LGmf0VPHYQ/formResponse', {method: 'POST', mode: 'no-cors',
+      body: new URLSearchParams({'entry.783513090': '[' + f.dataset.label + '] ' + msg})});
+    t.value = ''; st.textContent = 'Đã gửi, cảm ơn!';
+  } catch (err) {
+    st.textContent = 'Chưa gửi được, kiểm tra mạng rồi thử lại.';
+  }
+  b.disabled = false;
+}));
+</script>
 <p class="note">Giờ show, giờ mở cửa và quán ăn lấy từ trang VinWonders, Sunset Town, Vinpearl và các bài review du lịch (tháng 10/2026). Giá và giờ có thể đổi, kiểm tra lại khi đến.</p>
 </div>
 </body>
