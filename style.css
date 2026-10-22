@@ -63,3 +63,7 @@ ul.tips li{margin:5px 0}
 .pager a small{display:block;color:var(--muted);font-size:12px}
 .pager a.next{text-align:right}
 .note{font-size:13px;color:var(--muted);margin-top:8px}
+.fb{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:28px;background:var(--accent-bg);border-color:var(--accent)}
+.fb small{display:block;color:var(--muted);font-size:13px}
+.fbbtn{flex:none;padding:8px 16px;border-radius:999px;background:var(--accent);color:#fff;font-weight:600}
+.fbbtn:hover{text-decoration:none;opacity:.9}
